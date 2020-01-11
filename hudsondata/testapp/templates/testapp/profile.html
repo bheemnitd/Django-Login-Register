@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% extends "testapp/layout.html" %}
+{% load crispy_forms_tags %}
+{% block profile %}
+<div class="container">
+  <div class="col-sm-6">
+    <div class="span2">
+      <img src="http://thetransformedmale.files.wordpress.com/2011/06/bruce-wayne-armani.jpg"  alt="" class="img-rounded">
+    </div>
+  </div>
+    <div class="col-sm-6">
+
+<!--      <blockquote>-->
+<!--        <i class="icon-envelope">PROFILE</i><br><br>-->
+<!--        <i class="icon-globe"></i> FIRST NAME:<br>-->
+
+<!--        {% if not submited %}-->
+
+<!--          {{data.first_name}} <button type="button" class="btn btn-primary">EDIT</button><br><br>-->
+
+<!--        {% else %}-->
+
+<!--          <input id="firstname{{ data.first_name }}" name="firstname{{ data.first_name }}" type="text" placeholder='{{ data.first_name }}' />-->
+
+
+
+<!--        {% endif %}-->
+
+
+<!--        <i class="icon-globe"></i> LAST NAME  :<br>{{data.last_name}}<br><br>-->
+
+<!--        <i class="icon-envelope"></i> USER NAME: <br>{{data.username}} <br><br>-->
+
+<!--        <i class="icon-globe"></i> EMAIL :<br>{{data.email}}<br><br>-->
+<!--      </blockquote>-->
+
+      <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <fieldset class="form-group">
+              <legend class="border-bottom mb-4">PROFILE INFO</legend>
+              {{ form|crispy }}
+          </fieldset>
+          <div class="form-group">
+              <button class="btn btn-outline-info" type="submit">Update</button>
+          </div>
+      </form>
+
+    </div>
+</div>
+{% endblock %}
